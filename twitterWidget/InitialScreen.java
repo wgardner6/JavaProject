@@ -1,16 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.io.*;
+import java.lang.Process;
+import java.lang.Runtime;
 
-/**
-   Presents a phone GUI for the voice mail system.
-*/
 public class InitialScreen 
 {
-   /**
-      Constructs a telephone with a speaker, keypad,
-      and microphone.
-   */
    public InitialScreen()
    {
       JPanel topPanel = new FormatTop();
@@ -21,13 +17,29 @@ public class InitialScreen
       JButton worldButton = new JButton("Worldwide Trends");
       choicePanel.add(locButton);
       choicePanel.add(worldButton);
+      final String datapath = "./../../../CSCI_293/UnixProject/Twitter/";
       locButton.addActionListener(new
          ActionListener()
          {
             public void actionPerformed(ActionEvent event)
             {
+               String command = "make" ; //the make command you wish to run
+               String [] envp = { } ; //if you want to set some environment variables
+               File dir = new File ( datapath ) ; // this is the directory where the Makefile is
+               try
+               {
+               Process proc = Runtime.getRuntime().exec(command,envp,dir);
+               proc.waitFor ( );
+               }
+               catch(IOException ex)
+               {
+                  System.out.print("Hello");
+               }
+               catch(InterruptedException ex)
+               {
+                  System.out.print("Goodbye");
+               }
                LocalTrendsScreen localPanel = new LocalTrendsScreen();
-               //frame.add(localPanel, BorderLayout.CENTER);
             }
          });
        worldButton.addActionListener(new
@@ -35,7 +47,23 @@ public class InitialScreen
          {
             public void actionPerformed(ActionEvent event)
             {
-               //connect.dial(label);
+               String command = "bash WorldTrends.sh" ; //the make command you wish to run
+               String [] envp = { } ; //if you want to set some environment variables
+               File dir = new File ( datapath ) ; // this is the directory where the Makefile is
+               try
+               {
+               Process proc = Runtime.getRuntime().exec(command,envp,dir);
+               proc.waitFor ( );
+               }
+               catch(IOException ex)
+               {
+                  System.out.print("Hello");
+               }
+               catch(InterruptedException ex)
+               {
+                  System.out.print("Goodbye");
+               }
+               WorldTrendsScreen worldPanel = new WorldTrendsScreen();
             }
          });
 
