@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.io.*;
 import java.lang.Process;
 import java.lang.Runtime;
-
+import java.net.*;
 public class InitialScreen 
 {
    public InitialScreen()
@@ -23,7 +23,7 @@ public class InitialScreen
          {
             public void actionPerformed(ActionEvent event)
             {
-               String command = "make" ; //the make command you wish to run
+               String command = "bash make.sh" ; //the make command you wish to run
                String [] envp = { } ; //if you want to set some environment variables
                File dir = new File ( datapath ) ; // this is the directory where the Makefile is
                try
@@ -33,13 +33,13 @@ public class InitialScreen
                }
                catch(IOException ex)
                {
-                  System.out.print("Hello");
+                  System.out.print("IOException");
                }
                catch(InterruptedException ex)
                {
-                  System.out.print("Goodbye");
+                  System.out.print("InterruptedException");
                }
-               LocalTrendsScreen localPanel = new LocalTrendsScreen();
+               Trends localPanel = new Trends("./../../../CSCI_293/UnixProject/Twitter/TwitterHeadlines.txt");
             }
          });
        worldButton.addActionListener(new
@@ -57,13 +57,13 @@ public class InitialScreen
                }
                catch(IOException ex)
                {
-                  System.out.print("Hello");
+                  System.out.print("IOException");
                }
                catch(InterruptedException ex)
                {
-                  System.out.print("Goodbye");
+                  System.out.print("InterruptedException");
                }
-               WorldTrendsScreen worldPanel = new WorldTrendsScreen();
+               Trends worldPanel = new Trends("./../../../CSCI_293/UnixProject/Twitter/TwitterHeadlines.txt");
             }
          });
 
