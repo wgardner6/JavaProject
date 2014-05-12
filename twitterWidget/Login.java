@@ -4,6 +4,9 @@ import javax.swing.*;
 
 public class Login
 {
+   /**
+      Pop up window allowing login. Currently serves no purpose, just a placeholder.
+   */
    public Login()
    {
       JFrame loginFrame = new JFrame();

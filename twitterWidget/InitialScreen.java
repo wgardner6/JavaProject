@@ -5,8 +5,12 @@ import java.io.*;
 import java.lang.Process;
 import java.lang.Runtime;
 import java.net.*;
+
 public class InitialScreen 
 {
+   /**
+      Creates an intial screen that allows selection of world trends or local trends
+   */
    public InitialScreen()
    {
       JPanel topPanel = new FormatTop();

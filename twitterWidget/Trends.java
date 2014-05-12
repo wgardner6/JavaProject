@@ -5,6 +5,9 @@ import java.io.*;
 import java.net.URI;
 public class Trends extends JFrame
 {
+   /**
+      Creates a JFrame that holds all the Twitter links.
+   */
    public Trends(String file) 
    {
       JFrame LocTrends = new JFrame();
@@ -12,7 +15,6 @@ public class Trends extends JFrame
       try
       {
          JPanel panel = new JPanel(new GridLayout(10,1));
-         //String file = "./../../../CSCI_293/UnixProject/Twitter/TwitterHeadlines.txt";
          BufferedReader br = new BufferedReader(new FileReader(file));
          String title;
          while ((title = br.readLine()) != null){
